@@ -3,7 +3,7 @@
 
 Studieverktøy er et PHP web-applikasjon, aka. "Trello reinvented, again but this time for another uni project"...
 
-Features: *- under utvikling*
+## Features: *- under utvikling*
 - Bruker registrering
 - Multibruker - oppgave behandling
 - Samarbeid funksjoner
@@ -14,16 +14,23 @@ Features: *- under utvikling*
 - Epost integrering
 - Bruker valg/preferanser (dark/light + + + ?)
 
-Features hvis vi rekker det:
+### Features hvis vi rekker det:
 - Chatbot KI integrering
 - Flashcard
 - Pomodoro Timer
 
 ## Installation *- ikke klart*
-
+### Requirements 
+- PHP version (e.g., PHP >= 7.4)
+- Web server (e.g., Apache, Nginx)
+- Database (e.g., MySQL)
+- Required PHP extensions (e.g., pdo_mysql, curl)
 
 ## Usage *- ikke klart*
 
+## Testing *- ikke klart*
+
+## Directory Structure *- ikke klart*
 
 ## Medvirkning
 
