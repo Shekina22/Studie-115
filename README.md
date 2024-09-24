@@ -1,6 +1,4 @@
-# Studie-115
-# Studieverktøy
-
+# Studie-115 - Studieverktøy
 Studieverktøy er et PHP web-applikasjon, aka. "Trello reinvented, again but this time for another uni project"...
 
 ## Features: *- under utvikling*
@@ -31,6 +29,10 @@ Studieverktøy er et PHP web-applikasjon, aka. "Trello reinvented, again but thi
 ## Testing *- ikke klart*
 
 ## Directory Structure *- ikke klart*
+├── src/
+├── tests/
+├── public/
+└── README.md
 
 ## Medvirkning
 
