@@ -30,7 +30,7 @@ Features hvis vi rekker det:
 Lukket gruppe for Høsten 2024. 
 - https://github.com/Shekina22
 - https://github.com/jaimemontanares
-- https://github.com/
+- https://github.com/Tj12501
 
 
 
