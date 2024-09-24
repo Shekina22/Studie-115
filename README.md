@@ -17,18 +17,18 @@ Studieverktøy er et PHP web-applikasjon, aka. "Trello reinvented, again, but th
 - Flashcard
 - Pomodoro Timer
 
-## Installation *- ikke klart*
-### Requirements 
+## Installasjon *- ikke klart*
+### Krav 
 - PHP version (e.g., PHP >= 7.4)
 - Web server (e.g., Apache, Nginx)
 - Database (e.g., MySQL)
 - Required PHP extensions (e.g., pdo_mysql, curl)
 
-## Usage *- ikke klart*
+## Bruk *- ikke klart*
 
 ## Testing *- ikke klart*
 
-## Directory Structure *- ikke klart*
+## Mappe Struktur *- ikke klart*
 ├── src/
 ├── tests/
 ├── public/
@@ -43,8 +43,10 @@ Lukket gruppe for Høsten 2024.
 
 
 
-## License
+## Lisens
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Spesielt takk og kreditering
 
 README fil utviklet med [MakeReadMe](https://www.makeareadme.com/)
