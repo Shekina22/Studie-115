@@ -1,7 +1,7 @@
 # Studie-115 - Studieverktøy
 Studieverktøy er et PHP web-applikasjon, aka. "Trello reinvented, again, but this time for another uni project"...
 
-## Features: *- under utvikling*
+## Mål Funksjoner: *- under utvikling*
 - Bruker registrering
 - Multibruker - oppgave behandling
 - Samarbeid funksjoner
@@ -12,7 +12,7 @@ Studieverktøy er et PHP web-applikasjon, aka. "Trello reinvented, again, but th
 - Epost integrering
 - Bruker valg/preferanser (dark/light + + + ?)
 
-### Features hvis vi rekker det:
+### Funksjoner hvis vi rekker det:
 - Chatbot KI integrering
 - Flashcard
 - Pomodoro Timer
