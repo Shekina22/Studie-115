@@ -1,11 +1,15 @@
 <?php
-// Databasekonfigurasjon
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'study_tool');
+// Database configuration
+$host = 'localhost';
+$dbname = 'study_tool';
+$username = 'root';
+$password = '';
 
+// Create connection
+$conn = new mysqli($host, $username, $password, $dbname);
 
-// Sjekk tilkobling
-
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
