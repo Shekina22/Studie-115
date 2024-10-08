@@ -1,6 +1,22 @@
 <?php
 require_once 'config.php'; // Inkluderer databaseforbindelsen
 
+// Define the database name
+$databaseName = 'study_tool';
+
+// SQL query to create the database if it doesn't exist
+$createDatabase = "CREATE DATABASE IF NOT EXISTS $databaseName";
+
+// Execute the query to create the database
+if (mysqli_query($conn, $createDatabase)) {
+    echo "Database '$databaseName' was created or already exists.<br>";
+} else {
+    echo "Error creating database: " . mysqli_error($conn) . "<br>";
+}
+
+// Select the newly created or existing database
+mysqli_select_db($conn, $databaseName);
+
 // SQL-koden for å opprette 'users'-tabellen
 $createUsersTable = "CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
