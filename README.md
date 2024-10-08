@@ -36,7 +36,7 @@ Installasjonsinstruksjoner:
 
 - Installer Apache 2.4+ og sørg for at det kjører.
 - Installer MySQL 8.0+ og konfigurer den nødvendige databasen.
-- Sørg for at PHP-miljøet ditt er satt opp (hvis aktuelt).
+- Sørg for at PHP-miljøet ditt er satt opp.
 
 ## Bruk *- ikke klart*
 
