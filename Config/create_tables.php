@@ -1,5 +1,19 @@
 <?php
-require_once 'config.php'; // Inkluderer databaseforbindelsen
+// Inkluderer databaseforbindelsen
+require_once 'config.php'; 
+
+// SQL-kode for å opprette databasen hvis den ikke allerede eksisterer
+$createDatabase = "CREATE DATABASE IF NOT EXISTS study_tool";
+
+// Kjør SQL-kommandoen for å opprette databasen
+if (mysqli_query($conn, $createDatabase)) {
+    echo "study_tool' ble opprettet eller eksisterer allerede.<br>";
+} else {
+    echo "Feil ved opprettelse av databasen: " . mysqli_error($conn) . "<br>";
+}
+
+// Velg databasen vi nettopp opprettet
+mysqli_select_db($conn, 'my_database_name');
 
 // SQL-koden for å opprette 'users'-tabellen
 $createUsersTable = "CREATE TABLE IF NOT EXISTS users (
@@ -19,7 +33,7 @@ $createTasksTable = "CREATE TABLE IF NOT EXISTS tasks (
     FOREIGN KEY (user_id) REFERENCES users(id)
 )";
 
-// Kjør SQL-kommandoene
+// Kjør SQL-kommandoene for å opprette tabellene
 if (mysqli_query($conn, $createUsersTable)) {
     echo "Users-tabellen ble opprettet.<br>";
 } else {
@@ -35,3 +49,4 @@ if (mysqli_query($conn, $createTasksTable)) {
 // Lukk tilkoblingen
 mysqli_close($conn);
 ?>
+
