@@ -19,10 +19,24 @@ Studieverktøy er et PHP web-applikasjon, aka. "Trello reinvented, again, but th
 
 ## Installasjon *- ikke klart*
 ### Krav 
-- PHP version (e.g., PHP >= 7.4)
-- Web server (e.g., Apache, Nginx)
-- Database (e.g., MySQL)
-- Required PHP extensions (e.g., pdo_mysql, curl)
+Systemkrav:
+
+ - Operativsystem: Windows 10+, macOS 11+, eller Linux Ubuntu 20.04+
+ - Prosessor: Intel Core i3+ eller tilsvarende
+ - Minne: 4 GB RAM minimum (8 GB anbefalt)
+ - Lagring: 10 GB tilgjengelig plass
+
+Programvarekrav:
+
+ - Webserver: Apache 2.4+ (sørg for at det er riktig konfigurert og kjører)
+ - Database: MySQL 8.0+ (sørg for at det er riktig konfigurert og kjører)
+ - PHP: PHP 7.4+
+
+Installasjonsinstruksjoner:
+
+- Installer Apache 2.4+ og sørg for at det kjører.
+- Installer MySQL 8.0+ og konfigurer den nødvendige databasen.
+- Sørg for at PHP-miljøet ditt er satt opp (hvis aktuelt).
 
 ## Bruk *- ikke klart*
 
