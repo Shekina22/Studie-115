@@ -13,7 +13,8 @@ if (mysqli_query($conn, $createDatabase)) {
 }
 
 // Velg databasen vi nettopp opprettet
-mysqli_select_db($conn, 'my_database_name');
+mysqli_select_db($conn, 'study_tool');
+
 
 // SQL-koden for å opprette 'users'-tabellen
 $createUsersTable = "CREATE TABLE IF NOT EXISTS users (
