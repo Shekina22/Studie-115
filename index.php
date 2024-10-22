@@ -19,22 +19,25 @@ require_once 'includes/functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Tool - Welcome</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="Assets/CSS/black.css"> 
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Study Tool</h1>
-        <p>Your personal task manager for academic success!</p>
-    </header>
 
-    <nav>
+    <div class="tabbed">
+    <!-- Tab 1 -->
+    <input type="radio" id="tab-nav-1" name="tab-control" checked>
+    <label for="tab-nav-1">Dashboard</label>
+
+    <!-- Tab 1 Content -->
+    <div class="tabs">
+        <div>
+            <h2>Welcome to the Study Tool</h2>
+            <p>Your personal task manager for academic success!</p>
+            <nav>
         <a href="users/login.php">Login</a> | 
         <a href="users/register.php">Register</a>
     </nav>
-
-    <section>
-        <h2>About the Study Tool</h2>
-        <p>This tool helps you keep track of your study tasks and even deadlines, and collaborate with others.</p>
-    </section>
+        </div>
 </body>
 </html>
+
