@@ -43,10 +43,23 @@ Installasjonsinstruksjoner:
 ## Testing *- ikke klart*
 
 ## Mappe Struktur *- ikke klart*
-├── src/
-├── tests/
-├── public/
-└── README.md
+Her er en oversikt over mappestrukturen i prosjektet, med en kort forklaring av hva hver mappe og fil inneholder.
+
+```plaintext
+.
+├── Assets/                # Inneholder prosjektets statiske ressurser som bilder, CSS
+├── Config/                # Konfigurasjonsfiler og oppsett for prosjektet
+├── Tasks/                 # Håndterer oppgaverelaterte funksjoner og logikk
+├── Templates/             # Malfiler for prosjektets sider (HTML eller PHP-mal-filer)
+├── Users/                 # Håndterer brukerdata og brukerrelaterte funksjoner
+├── classes/               # PHP-klasser brukt i prosjektet
+├── includes/              # Eksterne filer som inkluderes i andre deler av koden, f.eks. funksjoner eller databaseforbindelser
+├── .htaccess              # Serverkonfigurasjonsfil for URL-omskriving og tilgangskontroll
+├── README.md              # Introduksjon og mappestruktur for prosjektet
+├── dashboard.php          # PHP-fil for brukerens dashbord
+├── htdocs.code-workspace  # Konfigurasjonsfil for arbeidsområdet i VS Code
+└── index.php              # Hovedinnlastingsfilen for nettstedet (startside)
+```
 
 ## Medvirkning
 
