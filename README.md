@@ -42,7 +42,7 @@ Installasjonsinstruksjoner:
 
 ## Testing *- ikke klart*
 
-## Mappe Struktur *- ikke klart*
+## Mappe Struktur *- ikke ferdig*
 Her er en oversikt over mappestrukturen i prosjektet, med en kort forklaring av hva hver mappe og fil inneholder.
 
 ```plaintext
