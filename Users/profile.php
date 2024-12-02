@@ -40,6 +40,7 @@ if ($stmt = $conn->prepare($query)) {
 
         <div class="back-link">
             <p><a href="../dashboard.php">Tilbake til Dashboard</a></p>
+            <p><a href="logout.php">Logg ut</a></p>
         </div>
     </div>
 </body>

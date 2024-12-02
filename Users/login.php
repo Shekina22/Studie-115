@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: ../dashboard.php');
         exit;
     } else {
-        echo "Feil brukernavn eller passord.";
+        $errorMessage =  "Feil brukernavn eller passord.";
     }
 }
 ?>
@@ -49,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <label for="password">Passord:</label>
             <input type="password" id="password" name="password" placeholder="Ditt passord" required>
-
+            <?php if (!empty($errorMessage) && strpos($errorMessage, 'Passord') !== false): ?>
+                <p class="error-message"><?php echo $errorMessage; ?></p>
+            <?php endif; ?>
             <button type="submit">Logg inn</button>
         </form>
         <p>Har du ikke konto? <a href="register.php">Registrer deg her</a>.</p>

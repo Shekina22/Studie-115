@@ -618,3 +618,23 @@ td[colspan="6"] {
 .back-link a:hover {
   text-decoration: underline;
 }
+
+/* Profile button styles */
+.profile-button {
+  padding: 10px 20px;
+  background-color: #4EC6DE;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align:justify;
+}
+
+.profile-button:hover {
+  background-color: #0097a7;
+}

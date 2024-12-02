@@ -92,6 +92,7 @@ $tasks = isset($_GET['show_my_tasks'])
                 </label>
             </form>
             <button id="openModal">Legg til ny oppgave</button>
+            <a href="users/profile.php" class="profile-button">Profil</a>
         </div>
     </div>
     <div class="tabs">
@@ -117,46 +118,46 @@ $tasks = isset($_GET['show_my_tasks'])
                 });
                 ?>
                 <?php if (empty($incompleteTasks)): ?>
-                        <tr>
-                            <td colspan="6">Ingen oppgaver funnet.</td>
-                        </tr>
+                    <tr>
+                        <td colspan="6">Ingen oppgaver funnet.</td>
+                    </tr>
                 <?php else: ?>
-                        <?php foreach ($incompleteTasks as $task): ?>
-                                <?php
-                                // Calculate the deadline status
-                                $currentDate = new DateTime();
-                                $dueDate = new DateTime($task['due_date']);
-                                $interval = $currentDate->diff($dueDate);
+                    <?php foreach ($incompleteTasks as $task): ?>
+                        <?php
+                        // Calculate the deadline status
+                        $currentDate = new DateTime();
+                        $dueDate = new DateTime($task['due_date']);
+                        $interval = $currentDate->diff($dueDate);
 
-                                // Determine row class based on deadline
-                                $rowClass = '';
-                                if ($task['completed']) {
-                                    $rowClass = 'completed-task';
-                                } elseif ($dueDate < $currentDate) {
-                                    $rowClass = 'past-deadline'; // Red tint
-                                } elseif ($interval->days <= 7 && !$interval->invert) {
-                                    $rowClass = 'near-deadline'; // Orange tint
-                                }
-                                ?>
-                                <tr class="<?php echo $rowClass; ?>">
-                                    <td><?php echo htmlspecialchars($task['title']); ?></td>
-                                    <td><?php echo htmlspecialchars($task['description']); ?></td>
-                                    <td><?php echo htmlspecialchars($task['task_type']); ?></td>
-                                    <td><?php echo htmlspecialchars($task['due_date']); ?></td>
-                                    <td><?php echo $task['completed'] ? 'Fullført' : 'Ikke fullført'; ?></td>
-                                    <td>
-                                        <form method="GET" style="display:inline;">
-                                            <input type="hidden" name="complete_id" value="<?php echo $task['id']; ?>">
-                                            <button type="submit">Fullfør</button>
-                                        </form>
+                        // Determine row class based on deadline
+                        $rowClass = '';
+                        if ($task['completed']) {
+                            $rowClass = 'completed-task';
+                        } elseif ($dueDate < $currentDate) {
+                            $rowClass = 'past-deadline'; // Red tint
+                        } elseif ($interval->days <= 7 && !$interval->invert) {
+                            $rowClass = 'near-deadline'; // Orange tint
+                        }
+                        ?>
+                        <tr class="<?php echo $rowClass; ?>">
+                            <td><?php echo htmlspecialchars($task['title']); ?></td>
+                            <td><?php echo htmlspecialchars($task['description']); ?></td>
+                            <td><?php echo htmlspecialchars($task['task_type']); ?></td>
+                            <td><?php echo htmlspecialchars($task['due_date']); ?></td>
+                            <td><?php echo $task['completed'] ? 'Fullført' : 'Ikke fullført'; ?></td>
+                            <td>
+                                <form method="GET" style="display:inline;">
+                                    <input type="hidden" name="complete_id" value="<?php echo $task['id']; ?>">
+                                    <button type="submit">Fullfør</button>
+                                </form>
 
-                                        </form>
-                                        <form method="POST" action="?delete_id=<?php echo $task['id']; ?>" style="display:inline;">
-                                            <button type="submit" onclick="return confirm('Er du sikker på at du vil slette oppgaven?')">Slett</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                        <?php endforeach; ?>
+                                </form>
+                                <form method="POST" action="?delete_id=<?php echo $task['id']; ?>" style="display:inline;">
+                                    <button type="submit" onclick="return confirm('Er du sikker på at du vil slette oppgaven?')">Slett</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
         </table>
@@ -175,20 +176,20 @@ $tasks = isset($_GET['show_my_tasks'])
             </thead>
             <tbody>
                 <?php foreach ($tasks as $task): ?>
-                        <?php if ($task['completed']): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($task['title']); ?></td>
-                                    <td><?php echo htmlspecialchars($task['description']); ?></td>
-                                    <td><?php echo htmlspecialchars($task['task_type']); ?></td>
-                                    <td><?php echo htmlspecialchars($task['due_date']); ?></td>
-                                    <td>
-                                        <form method="POST" action="?delete_id=<?php echo $task['id']; ?>" style="display:inline;">
-                                            <button type="submit" onclick="return confirm('Er du sikker på at du vil slette oppgaven?')">Slett</button>
-                                        </form>
-                                    </td>
-                                </tr>
+                    <?php if ($task['completed']): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($task['title']); ?></td>
+                            <td><?php echo htmlspecialchars($task['description']); ?></td>
+                            <td><?php echo htmlspecialchars($task['task_type']); ?></td>
+                            <td><?php echo htmlspecialchars($task['due_date']); ?></td>
+                            <td>
+                                <form method="POST" action="?delete_id=<?php echo $task['id']; ?>" style="display:inline;">
+                                    <button type="submit" onclick="return confirm('Er du sikker på at du vil slette oppgaven?')">Slett</button>
+                                </form>
+                            </td>
+                        </tr>
 
-                        <?php endif; ?>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>
