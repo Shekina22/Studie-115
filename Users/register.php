@@ -1,7 +1,7 @@
     <?php
     require_once '../config/config.php';  // Include the database connection
     require_once '../classes/User.php';   // Include User class
-
+    
     // Create User object
     $user = new User($conn);
 
@@ -37,9 +37,9 @@
         <div class="register-container">
             <h2>Registrer deg</h2>
             <?php if (!empty($errorMessage)): ?>
-                <p class="error-message"><?php echo $errorMessage; ?></p>
+                    <p class="error-message"><?php echo $errorMessage; ?></p>
             <?php elseif (!empty($successMessage)): ?>
-                <p class="success-message"><?php echo $successMessage; ?></p>
+                    <p class="success-message"><?php echo $successMessage; ?></p>
             <?php endif; ?>
             <form method="POST" action="">
                 <label for="username">Brukernavn:</label>

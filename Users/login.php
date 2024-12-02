@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="login-container">
         <h2>Innlogging</h2>
         <?php if (!empty($errorMessage)): ?>
-            <p class="error-message"><?php echo $errorMessage; ?></p>
+                <p class="error-message"><?php echo $errorMessage; ?></p>
         <?php endif; ?>
         <form method="POST" action="">
             <label for="username">Brukernavn:</label>

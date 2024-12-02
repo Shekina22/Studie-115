@@ -1,15 +1,18 @@
 <?php
 
-class Task {
+class Task
+{
     private $conn;
     private $table = 'tasks';
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
     // Hent oppgaver for en spesifikk bruker
-    public function getTasks($userId) {
+    public function getTasks($userId)
+    {
         $sql = "SELECT * FROM $this->table WHERE user_id = ? ORDER BY due_date ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $userId);
@@ -19,7 +22,8 @@ class Task {
     }
 
     // Hent oppgaver for alle brukere
-    public function getAllTasks() {
+    public function getAllTasks()
+    {
         $sql = "SELECT * FROM $this->table ORDER BY due_date ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
@@ -28,7 +32,8 @@ class Task {
     }
 
     // Legg til en ny oppgave med påminnelse
-    public function addTask($userId, $title, $description, $taskType, $dueDate, $reminder = null) {
+    public function addTask($userId, $title, $description, $taskType, $dueDate, $reminder = null)
+    {
         $sql = "INSERT INTO $this->table (user_id, title, description, task_type, due_date, reminder) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("isssss", $userId, $title, $description, $taskType, $dueDate, $reminder);
@@ -36,7 +41,8 @@ class Task {
     }
 
     // Fullfør oppgave
-    public function completeTask($taskId) {
+    public function completeTask($taskId)
+    {
         $sql = "UPDATE $this->table SET completed = 1 WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $taskId);
@@ -44,7 +50,8 @@ class Task {
     }
 
     // Slett oppgave
-    public function deleteTask($taskId) {
+    public function deleteTask($taskId)
+    {
         $sql = "DELETE FROM $this->table WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $taskId);

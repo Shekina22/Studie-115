@@ -1,14 +1,17 @@
 <?php
-class User {
+class User
+{
     private $conn;
     private $table = 'users';
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
     // Registrer bruker med brukernavn, e-post og passord
-    public function register($username, $email, $password) {
+    public function register($username, $email, $password)
+    {
         // Sjekk om brukernavn eksisterer
         $checkSql = "SELECT id FROM $this->table WHERE username = ?";
         $stmt = $this->conn->prepare($checkSql);
@@ -45,13 +48,14 @@ class User {
     }
 
     // Brukerinnlogging
-    public function login($username, $password) {
+    public function login($username, $password)
+    {
         $sql = "SELECT * FROM $this->table WHERE username = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
-        
+
         // Sjekk om brukeren finnes
         if ($result->num_rows === 0) {
             return false; // Bruker finnes ikke
@@ -64,39 +68,42 @@ class User {
         } else {
             return false;
         }
-    } 
+    }
 
     // Sjekk om innlogget bruker finnes
-    public function checkLogin($userId) {
+    public function checkLogin($userId)
+    {
         $sql = "SELECT * FROM $this->table WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $userId);
         $stmt->execute();
         $result = $stmt->get_result();
-        
+
         if ($result->num_rows === 0) {
             return false; // Bruker finnes ikke
         }
         return $result->fetch_assoc();
-    } 
-    
-    function checkReminders($conn) {
+    }
+
+    function checkReminders($conn)
+    {
         $currentTime = new DateTime();
         $currentTime->modify('+1 hour'); // Sjekk for oppgaver som må minnes om innen en time
-    
+
         $sql = "SELECT * FROM tasks WHERE reminder IS NOT NULL AND reminder <= ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $currentTime->format('Y-m-d H:i:s'));
         $stmt->execute();
         $tasks = $stmt->get_result();
-    
+
         while ($task = $tasks->fetch_assoc()) {
             // Send påminnelse, f.eks. via e-post
             #sendReminderEmail($task);
         }
     }
-    
-    function sendReminderEmail($task) {
+
+    function sendReminderEmail($task)
+    {
         // Her kan du implementere e-postsending
         $to = "user@example.com"; // Sett inn riktig e-postadresse
         $subject = "Påminnelse: " . $task['title'];
@@ -104,7 +111,7 @@ class User {
         // Send mail
         mail($to, $subject, $message);
     }
-    
+
 
 }
 ?>

@@ -20,7 +20,7 @@ $result = $conn->query($checkDatabase);
 if ($result->num_rows == 0) {
     // Hvis den ikke er opprettet, opprett ny
     $createDatabase = "CREATE DATABASE $databaseName";
-    if (!$conn->query($createDatabase) === TRUE)  {
+    if (!$conn->query($createDatabase) === TRUE) {
         die("Error creating database: " . $conn->error);
     }
 }

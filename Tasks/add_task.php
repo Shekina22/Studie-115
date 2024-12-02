@@ -13,7 +13,7 @@ $task = new Task($conn);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $taskType = $_POST['task_type'];  
+    $taskType = $_POST['task_type'];
     $dueDate = $_POST['due_date'];
     $reminder = $_POST['reminder'];
 
