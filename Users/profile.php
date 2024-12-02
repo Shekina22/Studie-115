@@ -39,7 +39,7 @@ if ($stmt = $conn->prepare($query)) {
         </form>
 
         <div class="back-link">
-            <p><a href="dashboard.php">Tilbake til Dashboard</a></p>
+            <p><a href="../dashboard.php">Tilbake til Dashboard</a></p>
         </div>
     </div>
 </body>

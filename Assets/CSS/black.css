@@ -23,7 +23,7 @@ body {
   align-items: flex-start; /* Justerer innholdet til venstre */
   gap: 1rem; /* Mellomrom mellom elementene */
   width: 100%; /* Full bredde */
-  max-width: 800px; /* Begrens maks bredde for lesbarhet */
+  max-width: 1000px; /* Begrens maks bredde for lesbarhet */
   margin: auto; /* Sentrer containeren */
   padding: 1rem;
   height: calc(100vh - 2rem); 
@@ -195,9 +195,11 @@ p {
 
 /* Table Styling */
 table {
-  width: 100%;
+  width: 100%; /* Ensure the table does not exceed its container width */
+  max-width: 100%; /* Prevent overflow beyond container width */
   border-collapse: collapse;
   margin-bottom: 2rem;
+  word-wrap: break-word; /* Enable word wrapping for content in cells */
 }
 
 thead {
@@ -237,6 +239,10 @@ tbody td {
   text-align: left;
   vertical-align: middle; /* Ensure buttons align vertically */
   position: relative; /* Helps in case of overflow issues */
+}
+
+tbody td:last-child {
+  text-align: center;
 }
 
 td[colspan="6"] {

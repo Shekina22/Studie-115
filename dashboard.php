@@ -76,7 +76,7 @@ $tasks = isset($_GET['show_my_tasks'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboards | Study Tool</title>
-    <link rel="stylesheet" href="../Assets/CSS/black.css">
+    <link rel="stylesheet" href="Assets/CSS/black.css">
 </head>
 
 <div class="container">
@@ -182,7 +182,6 @@ $tasks = isset($_GET['show_my_tasks'])
                                     <td><?php echo htmlspecialchars($task['task_type']); ?></td>
                                     <td><?php echo htmlspecialchars($task['due_date']); ?></td>
                                     <td>
-                                        </form>
                                         <form method="POST" action="?delete_id=<?php echo $task['id']; ?>" style="display:inline;">
                                             <button type="submit" onclick="return confirm('Er du sikker på at du vil slette oppgaven?')">Slett</button>
                                         </form>
