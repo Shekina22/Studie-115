@@ -15,9 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt = $conn->prepare($query)) {
         $stmt->bind_param("si", $new_email, $user_id);
         if ($stmt->execute()) {
-            echo "E-post oppdatert!";
-        } else {
-            echo "Noe gikk galt. Prøv igjen.";
+            header('Location: profile.php');
+            exit;
         }
     }
 }

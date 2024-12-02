@@ -3,7 +3,7 @@ session_start();
 require_once '../config/config.php';  // Inkluderer databaseforbindelsen
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header(header: 'Location: login.php');
     exit;
 }
 
@@ -16,16 +16,32 @@ if ($stmt = $conn->prepare($query)) {
     $stmt->bind_result($username, $email);
     $stmt->fetch();
 }
+
 ?>
 
-<h2>Profilinformasjon</h2>
-<p>Brukernavn: <?php echo htmlspecialchars($username); ?></p>
-<p>E-post: <?php echo htmlspecialchars($email); ?></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil | Study Tool</title>
+    <link rel="stylesheet" href="../Assets/CSS/black.css">
+</head>
 
-<h3>Oppdater e-post</h3>
-<form method="POST" action="update_profile.php">
-    <label for="email">Ny e-post:</label>
-    <input type="email" name="email" required><br>
+<body class="login-body">
+    <div class="profile-container">
+        <h2>Profilinformasjon</h2>
+        <p><strong>Brukernavn:</strong> <?php echo htmlspecialchars($username); ?></p>
+        <p><strong>E-post:</strong> <?php echo htmlspecialchars($email); ?></p>
 
-    <button type="submit">Oppdater</button>
-</form>
+        <form method="POST" action="update_profile.php">
+            <label for="email">Oppdater e-post:</label>
+            <input type="email" name="email" placeholder="Oppgi ny e-postadresse" required>
+            <button type="submit">Oppdater</button>
+        </form>
+
+        <div class="back-link">
+            <p><a href="dashboard.php">Tilbake til Dashboard</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

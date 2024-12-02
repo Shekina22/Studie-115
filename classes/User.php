@@ -66,7 +66,20 @@ class User {
         }
     } 
 
-
+    // Sjekk om innlogget bruker finnes
+    public function checkLogin($userId) {
+        $sql = "SELECT * FROM $this->table WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows === 0) {
+            return false; // Bruker finnes ikke
+        }
+        return $result->fetch_assoc();
+    } 
+    
     function checkReminders($conn) {
         $currentTime = new DateTime();
         $currentTime->modify('+1 hour'); // Sjekk for oppgaver som må minnes om innen en time
@@ -79,7 +92,7 @@ class User {
     
         while ($task = $tasks->fetch_assoc()) {
             // Send påminnelse, f.eks. via e-post
-            sendReminderEmail($task);
+            #sendReminderEmail($task);
         }
     }
     
@@ -88,7 +101,7 @@ class User {
         $to = "user@example.com"; // Sett inn riktig e-postadresse
         $subject = "Påminnelse: " . $task['title'];
         $message = "Husk å fullføre oppgaven: " . $task['description'] . "\nFrist: " . $task['due_date'];
-        // send mail
+        // Send mail
         mail($to, $subject, $message);
     }
     

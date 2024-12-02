@@ -1,4 +1,5 @@
 <?php
+
 class Task {
     private $conn;
     private $table = 'tasks';
@@ -12,6 +13,15 @@ class Task {
         $sql = "SELECT * FROM $this->table WHERE user_id = ? ORDER BY due_date ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Hent oppgaver for alle brukere
+    public function getAllTasks() {
+        $sql = "SELECT * FROM $this->table ORDER BY due_date ASC";
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
